@@ -1,0 +1,137 @@
+// example json objects and possible associated routes:
+
+post:/api/v1/company
+
+{ name: "MyCo",
+  address: "1 Red Ln",
+  city: "Annapolis",
+  state: "MD",
+  zip: "20103",
+  url: "http://www.red-themovie.com" 
+}
+
+post:/api/v1/user
+
+{ name: "Frank Moses",
+  type: "A",                // Could be 'A' for company admin, or 'E' for employee
+  co_id: 1,
+  user_name: "honcho",
+  password: "penny",
+  address: "1 My Way",
+  city: "Annapolis",
+  state: "MD",
+  zip: "20304",
+  email: "honcho@myco.com",
+  phone: "555-1212",
+  img: "http://www.red-themovie.com"
+}
+
+post:/api/v1/schedule
+
+{
+  schedule: {             // Populates the schedules table
+    schedule_nm: "Monday",
+    co_id: 1,
+    user_id: 1
+  },
+  hours: [ { type: "R", date: "2017-03-22", hour: 13 },   // Populates the schedule_dtls table 
+           { type: "R", date: "2017-03-22", hour: 14 },   // Can be "R" for request, or "A" for availability
+           { type: "R", date: "2017-03-22", hour: 15 },
+           { type: "R", date: "2017-03-22", hour: 16 },
+           { type: "R", date: "2017-03-22", hour: 17 },
+           { type: "R", date: "2017-03-22", hour: 18 },
+           { type: "R", date: "2017-03-22", hour: 19 }
+  ]
+}
+
+get:/api/v1/schedules
+
+request: returns all schedules for a user or company
+
+{ user_id: 1 } || { co_id: 1 }
+
+returns:
+
+[ 
+  { id: 1, company_name: "MyCo", schedule_nm: "Week-14 Server 1",  user_id: 1, user_nm: "honcho", start_dt: "2017-03-21", end_dt: "2017-03-28" },
+  { id: 2, company_name: "MyCo", schedule_nm: "Week-14 Laundry",   user_id: 1, user_nm: "honcho", start_dt: "2017-03-21", end_dt: "2017-03-28" },
+  { id: 3, company_name: "MyCo", schedule_nm: "Week-14 Chef",      user_id: 1, user_nm: "honcho", start_dt: "2017-03-21", end_dt: "2017-03-28" },
+  { id: 4, company_name: "MyCo", schedule_nm: "Week-14 Server 2",  user_id: 1, user_nm: "honcho", start_dt: "2017-03-21", end_dt: "2017-03-28" },
+  { id: 5, company_name: "MyCo", schedule_nm: "Week-14 Maitre De", user_id: 1, user_nm: "honcho", start_dt: "2017-03-21", end_dt: "2017-03-28" }
+]
+
+get:/api/v1/schedule
+
+request:
+
+{ schedule_id: 1 }
+
+returns: 
+
+{
+    schedule: {             
+    schedule_nm: "Week-14 Server 1",
+    co_id: 1,
+    user_id: 1
+  },
+  hours: [ { date: "2017-03-22", hour: 13, status: "C", requested: { user_id: 1, user_nm: "Honcho" }, available: { user_id: 2, user_nm: "Billy Bob" } },   
+           { date: "2017-03-22", hour: 14, status: "C", requested: { user_id: 1, user_nm: "Honcho" }, available: { user_id: 2, user_nm: "Billy Bob" } },
+           { date: "2017-03-22", hour: 15, status: "R", requested: { user_id: 1, user_nm: "Honcho" }, available: {  } },
+           { date: "2017-03-22", hour: 16, status: "R", requested: { user_id: 1, user_nm: "Honcho" }, available: {  } },
+           { date: "2017-03-22", hour: 17, status: "C", requested: { user_id: 1, user_nm: "Honcho" }, available: { user_id: 2, user_nm: "Billy Bob" } },
+           { date: "2017-03-22", hour: 18, status: "A", requested: {  }, available: { user_id: 2, user_nm: "Billy Bob" } },
+           { date: "2017-03-22", hour: 19, status: "A", requested: {  }, available: { user_id: 2, user_nm: "Billy Bob" } }
+  ]
+}
+
+// Above there are three three hours that are both requested and covered by availabe hours, (C) = covered
+// There are two hours that have labor available, but no request. (A) = available
+// There are twp hours that have requests for labor that are not covered (R) = requested
+
+get:/api/v1/emps
+
+request: { co_id: 1 } 
+
+response:  // A list of all users in a company
+[
+  { name: "Frank Moses",
+    type: "A",               
+    co_id: 1,
+    user_name: "honcho",
+    password: "penny",
+    address: "1 My Way",
+    city: "Annapolis",
+    state: "MD",
+    zip: "20304",
+    email: "honcho@myco.com",
+    phone: "555-1212",
+    img: "http://www.red-themovie.com"
+  },
+  { name: "Biddie",
+    type: "A",               
+    co_id: 1,
+    user_name: "honcho",
+    password: "penny",
+    address: "1 My Way",
+    city: "Annapolis",
+    state: "MD",
+    zip: "20304",
+    email: "honcho@myco.com",
+    phone: "555-1212",
+    img: "http://www.red-themovie.com"
+  },
+  { name: "Curly",
+    type: "A",               
+    co_id: 1,
+    user_name: "honcho",
+    password: "penny",
+    address: "1 My Way",
+    city: "Annapolis",
+    state: "MD",
+    zip: "20304",
+    email: "honcho@myco.com",
+    phone: "555-1212",
+    img: "http://www.red-themovie.com"
+  },
+]
+
