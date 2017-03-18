@@ -1,0 +1,20 @@
+{
+  "name": "managing-made-easy",
+  "version": "1.0.0",
+  "description": "a shift planning app for managers at businesses with hourly employees",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolfejw86/group-project-number-2.git"
+  },
+  "author": "john wolfe, don knapp, tyler olli, eric tucker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wolfejw86/group-project-number-2/issues"
+  },
+  "homepage": "https://github.com/wolfejw86/group-project-number-2#readme"
+}
