@@ -12,10 +12,10 @@ db.sequelize.sync( { force: true} ).then( function() {
         url: ""
     });
 
-    db.users.create( { name: "Don Knapp",
+    db.users.create( { name: "Jim Bob",
     type: "A",
     co_id: 1,
-    user_name: "dknapp",
+    user_name: "Honcho",
     password: "penny",
     address: "2527 Shelburne Pl.",
     email: "don@dknapp.com",
@@ -35,26 +35,26 @@ db.sequelize.sync( { force: true} ).then( function() {
     });
 
     db.schedule.create( {
-        schedule_name: "MyCo. Weekday",
+        schedule_nm: "MyCo. Weekday",
         co_id: 1,
         user_id: 1
     });
 
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 13 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 14 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 15 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 16 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 17 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 18 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 19 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'R', date: "2017-03-20", hour: 20 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 13 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 14 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 15 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 16 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 17 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 18 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 19 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 1, type: 'R', date: "2017-03-20", hour: 20 });
 
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 15 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 16 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 17 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 18 });
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 19 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 15 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 16 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 17 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 18 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 19 });
 
-    db.schedule_dtl.create( { schedule_id: 1, type: 'A', date: "2017-03-20", hour: 22 });
+    db.schedule_dtl.create( { schedule_id: 1, user_id: 2, type: 'A', date: "2017-03-20", hour: 22 });
 
 });
