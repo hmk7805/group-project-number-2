@@ -11,6 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  schedule.sync();
+  // schedule.sync();
   return schedule;
 };

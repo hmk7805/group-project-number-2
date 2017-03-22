@@ -20,6 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  users.sync();
+  // users.sync();
   return users;
 };

@@ -12,6 +12,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  schedule_dtl.sync();
+  // schedule_dtl.sync();
   return schedule_dtl;
 };
