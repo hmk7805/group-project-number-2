@@ -15,6 +15,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  company.sync();
+  // company.sync();
   return company;
 };
