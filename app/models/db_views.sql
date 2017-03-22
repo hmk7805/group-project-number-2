@@ -33,8 +33,8 @@ select ifnull( r.schedule_id, e.schedule_id ) schedule_id,
        e.type eType,
        e.date eDate,
        e.hour eHour
-  from v_avail e
-  left outer join v_req r on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
+  from v_req R
+  right outer join v_avail E on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
  where ( r.type is null or r.type = 'R' )
    and ( e.type is null or e.type = 'A' )
  order by ifnull( rDate, eDate ), ifnull( rHour, eHour );
