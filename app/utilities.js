@@ -13,9 +13,9 @@ connection.connect( function() {
     console.log( "Connected to mysql" );
 });
 
-function runSQL( SQLText ) {
+function runSQL( SQLText, params ) {
     return new Promise( function( resolve, reject ) {
-        connection.query( SQLText, function( err, results, fields ) {
+        connection.query( SQLText, params, function( err, results, fields ) {
             if ( err ) reject( err );
             resolve( results );
         })
