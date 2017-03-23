@@ -17,8 +17,6 @@ function runSQL( SQLText ) {
     return new Promise( function( resolve, reject ) {
         connection.query( SQLText, function( err, results, fields ) {
             if ( err ) reject( err );
-
-            //console.log( "SQL results: ", results );
             resolve( results );
         })
     })

@@ -31,7 +31,7 @@ module.exports = function (app) {
     })
 
     app.get( "/api/v1/schedules", function( req, res ) {
-        util.runSQL( "SELECT * FROM schedules" )
+        util.runSQL( "SELECT * FROM v_foj_sched" )
         .then( function( results ) { 
             res.status(200).json( results );
         })

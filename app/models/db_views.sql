@@ -13,11 +13,11 @@ create view v_foj_sched as
 select ifnull( r.schedule_id, e.schedule_id ) schedule_id,
        r.user_id rUser,
        r.type rType,
-       r.date rDate,
+       DATE_FORMAT( r.date, '%Y-%m-%d' ) rDate,
        r.hour rHour,
        e.user_id eUser,
        e.type eType,
-       e.date eDate,
+       DATE_FORMAT( e.date, '%Y-%m-%d' ) eDate,
        e.hour eHour
   from v_req R
   left outer join v_avail E on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
@@ -27,11 +27,11 @@ union
 select ifnull( r.schedule_id, e.schedule_id ) schedule_id,
        r.user_id rUser,
        r.type rType,
-       r.date rDate,
+       DATE_FORMAT( r.date, '%Y-%m-%d' ) rDate,
        r.hour rHour,
        e.user_id eUser,
        e.type eType,
-       e.date eDate,
+       DATE_FORMAT( e.date, '%Y-%m-%d' ) eDate,
        e.hour eHour
   from v_req R
   right outer join v_avail E on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
