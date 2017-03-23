@@ -44,6 +44,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/layouts/layout2/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/layouts/layout2/css/themes/blue.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="../assets/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+         <link href="../assets/calendar.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
@@ -1688,39 +1690,349 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="portlet light portlet-fit  calendar">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase">Calendar</span>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-3 col-sm-12">
-                                            <!-- BEGIN DRAGGABLE EVENTS PORTLET-->
-                                            <h3 class="event-form-title margin-bottom-20">Draggable Events</h3>
-                                            <div id="external-events">
-                                                <form class="inline-form">
-                                                    <input type="text" value="" class="form-control" placeholder="Event Title..." id="event_title" />
-                                                    <br/>
-                                                    <a href="javascript:;" id="event_add" class="btn green"> Add Event </a>
-                                                </form>
-                                                <hr/>
-                                                <div id="event_box" class="margin-bottom-10"></div>
-                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="drop-remove"> remove after drop
-                                                    <input type="checkbox" class="group-checkable" id="drop-remove" />
-                                                    <span></span>
-                                                </label>
-                                                <hr class="visible-xs" /> </div>
-                                            <!-- END DRAGGABLE EVENTS PORTLET-->
-                                        </div>
-                                        <div class="col-md-9 col-sm-12">
-                                            <div id="calendar" class="has-toolbar"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        <span class="day">1</span>
+        <span class="long">Monday</span>
+        <span class="short">Mon</span>
+      </th>
+      <th>
+        <span class="day">2</span>
+        <span class="long">Tuesday</span>
+        <span class="short">Tue</span>
+      </th>
+      <th>
+        <span class="day">3</span>
+        <span class="long">Wendsday</span>
+        <span class="short">We</span>
+      </th>
+      <th>
+        <span class="day">4</span>
+        <span class="long">Thursday</span>
+        <span class="short">Thur</span>
+      </th>
+      <th>
+        <span class="day active">5</span>
+        <span class="long">Friday</span>
+        <span class="short">Fri</span>
+      </th>
+      <th>
+        <span class="day">6</span>
+        <span class="long">Saturday</span>
+        <span class="short">Sat</span>
+      </th>
+      <th>
+        <span class="day">7</span>
+        <span class="long">Sunday</span>
+        <span class="short">Sun</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="hour" rowspan="4"><span>1:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>2:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td class="hour" rowspan="4"><span>3:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>4:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>5:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>6:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>7:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="hour" rowspan="4"><span>8:00</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
                         </div>
                     </div>
                 </div>
