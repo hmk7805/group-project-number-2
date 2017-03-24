@@ -45,7 +45,7 @@ table tbody tr {
 table tbody tr:nth-child(odd) {
   background: #c8cdd4;
 }
-table tbody tr:nth-child(4n+0) td {
+table tbody tr:nth-child(1n+0) td {
   border-bottom: 1px solid #626E7E;
 }
 table tbody tr td {
@@ -53,7 +53,7 @@ table tbody tr td {
   vertical-align: middle;
   border-left: 1px solid #626E7E;
   position: relative;
-  height: 32px;
+  height: 128px;
   cursor: pointer;
 }
 table tbody tr td:last-child {
