@@ -53,7 +53,7 @@ table tbody tr td {
   vertical-align: middle;
   border-left: 1px solid #626E7E;
   position: relative;
-  height: 128px;
+  height: 64px;
   cursor: pointer;
 }
 table tbody tr td:last-child {

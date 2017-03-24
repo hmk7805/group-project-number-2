@@ -48,9 +48,24 @@ function setHourCellColor( target ) {
 }
 
 function getSelectedHours() {
+    let hours = { 
+        "schedule": {
+            "name": "MySchedule",
+            "co_id": 1,
+            "user_id": 1
+        },
+        hours: []
+    };
     $(".hour-selected").each( function( i, cell ) {
         console.log( i, cell );
-    })
+        let newTime = {};
+        newTime.type = 'R';  // Should be "R" or "A"
+        newTime.day = cell.dataset.day;
+        newTime.hour = cell.dataset.hour.split(":")[0];
+        hours.hours.push( newTime );
+    });
+
+    console.log( JSON.stringify( hours, null, 2 ) );
 }
 
 function resetAllhours() {
