@@ -1,5 +1,5 @@
 .ui-datepicker-calendar {
-  width: 50%;
+  width:50%;
 }
 
 table {
@@ -64,7 +64,7 @@ table tbody tr td:last-child {
   border-right: 1px solid #626E7E;
 }
 table tbody tr td.hour {
-  font-size: 2em;
+  font-size: 1em;
   padding: 0;
   color: #626E7E;
   background: #fff;
@@ -76,48 +76,81 @@ table tbody tr td.hour {
 table tbody tr td.hour span {
   display: block;
 }
-@media (max-width: 60em) {
+
+table tbody tr td.hour span.show-when-small {
+  display: none;
+}
+
+
+@media (max-width: 54em) {
   table thead tr th .long {
     display: none;
+  }
+
+   table thead tr th .day {
+    display: block;
+    font-size: 1.2em;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  
   }
   table thead tr th .short {
     display: block;
   }
-  table tbody tr td.hour span {
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
+
+  table tbody tr td.hour {
+    font-size: 1em;
+    margin-top: 0px;
+    padding-bottom: 5px;
   }
+  
 }
+
+.hide-when-small {
+display: block;
+}
+
+.show-when-small {
+display: none;
+
+}
+
+
 @media (max-width: 27em) {
   table thead tr th {
-    font-size: 65%;
+    font-size: 85%;
   }
   table thead tr th .day {
     display: block;
     font-size: 1.2em;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin: 0 auto 5px;
-    padding: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  
   }
   table thead tr th .day.active {
     background: #d1d5db;
     color: #626E7E;
   }
   table tbody tr td.hour {
-    font-size: 1.7em;
+    font-size: 0.8em;
+    margin-top: 0px;
+    padding-bottom: 30px;
   }
   table tbody tr td.hour span {
     transform: translateY(16px) rotate(270deg);
     -webkit-transform: translateY(16px) rotate(270deg);
     -moz-transform: translateY(16px) rotate(270deg);
   }
+  table tbody tr td.hour span.show-when-small {
+    display: block;
+  }
+
+  table tbody tr td.hour span.hide-when-small {
+    display: none;
+  }
+
 }
-
-
-.hour-selected {
-    background-color: lightblue;
-}
-
