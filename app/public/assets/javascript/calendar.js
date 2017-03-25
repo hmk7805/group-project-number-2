@@ -110,8 +110,22 @@ const calendar = {
         $("#datepicker").on("change", function(e) {
             console.log( "Date: ", e );
             console.log( $(e).attr("timestamp") );
-        })
+        });
+
+        $( "#datepicker" ).datepicker( "option", "changeMonth", true );
     },
+} 
+
+const logControl = {
+
+    logout: function() {
+        $.ajax( {
+            method: "POST",
+            url: "/logout"
+        }).done( function() {
+            console.log( "Logged out." );
+        })
+    }
 }
 
 $(()=> {

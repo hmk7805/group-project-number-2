@@ -77,6 +77,15 @@ module.exports = function (app) {
         })
     })
 
+    // return as user entry by ID
+    app.get("/api/v1/useremail/:email", function (req, res) {
+        console.log(req.params.email);
+        util.runSQL("SELECT * FROM v_user WHERE email = ?", [req.params.email])
+            .then(function (results) {
+                res.status(200).json(results);
+            })
+    })
+
     // Return all schedules for a compnay 
     app.get("/api/v1/schedules/:co_id", function (req, res) {
         util.runSQL("SELECT * FROM schedules WHERE co_id = ?", [req.params.co_id])
