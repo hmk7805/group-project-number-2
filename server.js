@@ -17,12 +17,17 @@ app.use(stormpath.init( app, {
 	application: {
 		href: 'https://api.stormpath.com/v1/applications/1M6Oils9Itmj7d239Wq368'
 	},
-	website: true
+	website: true,
+	expand: {
+	customData: true
+}
 }));
+
+
 
 // Static directory for html, styling, etc.
 app.use(express.static("./app/public"));
-app.use(express.static("./metronic_v4.7.1"));
+
 
 const html = require('./app/routing/htmlRoutes.js')(app);
 const api = require('./app/routing/apiRoutes.js')(app);
