@@ -1,7 +1,7 @@
 
 console.log( "Calendar loaded..." );
 
-$("table").on("click", function(e) {
+$("table").on("click", "*", function(e) {
 
     if ( $(e.target).hasClass( "top-left" ) ) {
         flipAllHours()
@@ -14,7 +14,7 @@ $("table").on("click", function(e) {
     if ( $(e.target).hasClass( "day-head" ) ) {
         flipDayCellColor( e.target );
     }
-
+    
     if ( $( e.target ).hasClass("hour-tag") ) {
         setHourCellColor( e.target );
     }
@@ -74,3 +74,15 @@ function resetAllhours() {
         $(cell).removeClass("hour-selected");
     })
 }
+
+$(function () {
+    $("#datepicker").datepicker();
+    $("#format").on("change", function () {
+        $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+    });
+});
+
+$("#datepicker").on("change", function(e) {
+    console.log( "Date: ", e );
+    console.log( $(e).attr("timestamp") );
+})
