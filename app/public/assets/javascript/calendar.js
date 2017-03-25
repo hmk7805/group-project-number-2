@@ -36,15 +36,14 @@ const calendar = {
     },
 
     setDateHeadings: function( dt ) {
-        console.log( "Setting date headings :", dt );
         dt = moment( dt.format('YYYY-MM-DD'));
         let dow = dt.isoWeekday();
         dt.subtract( dow - 1, 'days' );
         console.log( "Start of week = ", dt.format('YYYY-MM-DD') );
         for ( let i = 1; i<8; i++ ) {
             let $dheader = $(".day-head[data-day-head='" + i + "'] span")[0];
-            console.log( $dheader );
             $dheader.innerHTML = dt.format( "M/D/YY" );
+            $($dheader).attr("data-date", dt.format('YYYY-MM-DD'));
             dt.add( 1, 'days' );
         }
     },
