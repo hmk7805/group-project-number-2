@@ -1,3 +1,7 @@
+.ui-datepicker-calendar {
+  width: 50%;
+}
+
 table {
   font-family: sans-serif;
   width: 100%;
@@ -111,3 +115,9 @@ table tbody tr td.hour span {
     -moz-transform: translateY(16px) rotate(270deg);
   }
 }
+
+
+.hour-selected {
+    background-color: lightblue;
+}
+
