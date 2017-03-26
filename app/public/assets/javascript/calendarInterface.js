@@ -34,24 +34,25 @@ $(() => {
         })
     })
 //end of the triple ajax call for user data and populating the schedules
-
-    $('#submit-schedule').on('click', (e) => {
+    const submitButton = (document.getElementsByClassName('btn btn-circle btn-outline green dropdown-toggle'))[0];
+    console.log(submitButton);
+    $(submitButton).on('click', (e) => {
         e.preventDefault();
-        const selectedHours = $('#selected-hours');
+        const firstDayOfWeek = ($('table thead tr'))[0].children[1].children[0].dataset.date;
+        console.log(firstDayOfWeek);
+        const selectedHours = $('table tbody');
         const rowArray = [].slice.call(selectedHours[0].childNodes);
         console.log(rowArray);
-        let userSelection = {
-            "rows": [
-                
-            ]
-        };
+        
         rowArray.forEach(row => {
             if(row.nodeName === "TR"){
                 const tdArray = [].slice.call(row.childNodes);
                 console.log(tdArray);
                 for(let i = 3; i < tdArray.length; i++){
-                    if(tdArray[i].nodeName === 'TD'){
-
+                    if(tdArray[i].nodeName === 'TD'){//add checks for if the user marked it available
+                        //need to post with the following:
+                        //user.id , day of the week it's associated with in date format
+                        //the specific hour, the schedule id
                     }
                 }
 
