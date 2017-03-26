@@ -2,6 +2,10 @@
   width:50%;
 }
 
+#ui-datepicker-div {
+display: none;
+}
+
 table {
   font-family: sans-serif;
   width: 100%;

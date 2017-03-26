@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "root",
     "database": "planner",
     "host": "127.0.0.1",
+    "port": "8889",
     "dialect": "mysql"
   },
   "test": {
@@ -11,6 +12,7 @@
     "password": "root",
     "database": "planner",
     "host": "127.0.0.1",
+    "port": "8889",
     "dialect": "mysql"
   },
   "production": {
@@ -18,6 +20,7 @@
     "password": "root",
     "database": "planner",
     "host": "127.0.0.1",
+    "port": "8889",
     "dialect": "mysql"
   }
 }
