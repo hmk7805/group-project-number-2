@@ -40,16 +40,20 @@ $(() => {
         const selectedHours = $('#selected-hours');
         const rowArray = [].slice.call(selectedHours[0].childNodes);
         console.log(rowArray);
+        let userSelection = {
+            "rows": [
+                
+            ]
+        };
         rowArray.forEach(row => {
             if(row.nodeName === "TR"){
                 const tdArray = [].slice.call(row.childNodes);
                 console.log(tdArray);
-                tdArray.forEach(td => {
-                    if(td.nodeName === "TD"){
-                        console.log(td.dataSet);
+                for(let i = 3; i < tdArray.length; i++){
+                    if(tdArray[i].nodeName === 'TD'){
+
                     }
-                    
-                });
+                }
 
             }
         })
