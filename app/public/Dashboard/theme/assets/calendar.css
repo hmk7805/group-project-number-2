@@ -2,6 +2,11 @@
   width:50%;
 }
 
+.ui-datepicker-header {
+background-color: white;
+width:50%;
+}
+
 #ui-datepicker-div {
 display: none;
 }
