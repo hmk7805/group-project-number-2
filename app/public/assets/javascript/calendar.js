@@ -27,6 +27,35 @@ const calendar = {
         this.setDateHeadings( moment() );
 
         this.activateDateHeadings();
+
+        this.pullUserInfoToTheFrontEnd();
+    },
+
+    userInfo: {},
+
+    pullUserInfoToTheFrontEnd: function() {
+        let email = getCookie( "userEmail" );
+        console.log( "Email cookie is: ", email );
+        $.ajax( {
+            method: "GET",
+            url: "/api/v1/useremail/" + email
+        }).done( (resp) => {
+            console.log( resp );
+            calendar.userInfo.userID      = resp[0].id;
+            calendar.userInfo.userName    = resp[0].user_name;
+            calendar.userInfo.coID        = resp[0].co_id,
+            calendar.userInfo.companyName = resp[0].company_name;
+            calendar.userInfo.email       = resp[0].email;
+            calendar.userInfo.name        = resp[0].name;
+            calendar.userInfo.phone       = resp[0].phone;
+            calendar.userInfo.address     = resp[0].address;
+            calendar.userInfo.city        = resp[0].city;
+            calendar.userInfo.state       = resp[0].state;
+            calendar.userInfo.zip         = resp[0].zip;
+            calendar.userInfo.img         = resp[0].img;
+
+            console.log( calendar.userInfo );
+        })
     },
 
     activateDateHeadings: function() {
