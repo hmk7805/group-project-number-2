@@ -53,6 +53,7 @@ $(() => {
                         //need to post with the following:
                         //user.id , day of the week it's associated with in date format
                         //the specific hour, the schedule id
+                        console.log(tdArray[i]);
                     }
                 }
 
