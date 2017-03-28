@@ -1,3 +1,4 @@
+'use strict';
 const path = require("path");
 var stormpath = require( 'express-stormpath' );
 const db = require('../models');
