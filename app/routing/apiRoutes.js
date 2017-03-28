@@ -52,18 +52,18 @@ module.exports = function (app) {
 
     // THIS IS WHERE ADD A SCHEDULE GOES.
     app.post("/api/v1/addsched", function(req,res) {
-        console.log( req.body );
+        console.log( "post:addsched:", req.body );
 
-        if ( body.schedule.schedule_id === 0 ) {
+        if ( req.body.schedule.schedule_id === 0 ) {
             console.log( "New schedule inserting" );
-            sched.insertSched( body )
+            sched.insertSched( req.body )
             .then( sched.insertSchedDtl )
             .then( function( output ) { 
                 res.status(200).json( output );
             })
         } else {
             console.log( "Updating an existing schedule" );
-            sched.removeSchedDtl( body )
+            sched.removeSchedDtl( req.body )
             .then( sched.updateSched )
             .then( sched.insertSchedDtl )
             .then( function( output ) { 

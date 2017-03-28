@@ -31,7 +31,7 @@ module.exports = {
                 let hour = body.hours[i];
                 inserts.push( 
                     db.schedule_dtl.create({
-                        "schedule_id": body.schedule.schedule_id,
+                        "schedule_id": body.schedule_results.id,
                         "type": body.schedule.type,
                         "user_id": body.schedule.user_id,
                         "date": hour.date,
@@ -46,6 +46,10 @@ module.exports = {
                     body.dtls.push( results[i].dataValues );
                 }
                 console.log( body );
+                resolve( body );
+            })
+            .catch( function( err ) {
+                reject( new Error( err ) );
             })
         })
     },
@@ -94,6 +98,7 @@ module.exports = {
                 "where": { id: body.schedule.schedule_id }
             })
             .then( function( result ) {
+                body.schedule_results = { "id": body.schedule_id }
                 resolve( body );
             })
             .catch( function( err ) {
