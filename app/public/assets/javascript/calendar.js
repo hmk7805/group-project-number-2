@@ -45,9 +45,9 @@ const calendar = {
             url: "/api/v1/useremail/" + email
         }).done( (resp) => {
             console.log( resp );
-            calendar.userInfo.userID      = resp[0].id;
+            calendar.userInfo.userID      = resp[0].userID;
             calendar.userInfo.userName    = resp[0].user_name;
-            calendar.userInfo.coID        = resp[0].co_id,
+            calendar.userInfo.coID        = resp[0].coID,
             calendar.userInfo.companyName = resp[0].company_name;
             calendar.userInfo.email       = resp[0].email;
             calendar.userInfo.name        = resp[0].name;
@@ -111,8 +111,8 @@ const calendar = {
         let hours = { 
             "schedule": {
                 "schedule_nm": "MySchedule",
-                "co_id": calendar.userInfo.co_id,
-                "user_id": calendar.userInfo.user_id,
+                "co_id": calendar.userInfo.coID,
+                "user_id": calendar.userInfo.userID,
                 "type": calendar.userInfo.type,
                 "schedule_id": 0
 
