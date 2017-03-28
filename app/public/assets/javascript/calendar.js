@@ -112,7 +112,8 @@ const calendar = {
                 "schedule_nm": "MySchedule",
                 "co_id": 1,   // this is stubbed out and need to be make real
                 "user_id": 1, // this too.
-                "type": "R"
+                "type": "R",
+                "schedule_id": 1   // this too.
             },
             hours: []
         };
@@ -180,3 +181,4 @@ function getCookie(cname) {
 $(()=> {
     calendar.init();
 })
+
