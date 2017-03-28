@@ -109,17 +109,17 @@ const calendar = {
     getSelectedHours: function() {
         let hours = { 
             "schedule": {
-                "name": "MySchedule",
-                "co_id": 1,
-                "user_id": 1
+                "schedule_nm": "MySchedule",
+                "co_id": 1,   // this is stubbed out and need to be make real
+                "user_id": 1, // this too.
+                "type": "R"
             },
             hours: []
         };
         $(".hour-selected").each( function( i, cell ) {
             console.log( i, cell );
             let newTime = {};
-            newTime.type = 'R';  // Should be "R" or "A"
-            newTime.day = cell.dataset.day;
+            newTime.date = $(".day[data-name='day-" + cell.dataset.day + "'").attr('data-date')
             newTime.hour = cell.dataset.hour.split(":")[0];
             hours.hours.push( newTime );
         });
