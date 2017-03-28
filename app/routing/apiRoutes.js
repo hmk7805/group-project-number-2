@@ -10,6 +10,15 @@ module.exports = function (app) {
     //adding availability for employees
     app.post("/api/v1/schedule/:user_id", function (req, res) {
         console.log(req.body);
+        db.schedule_dtl.create({
+            type: req.body.availability,
+            user_id: req.params.user_id,
+            date: req.body.date,
+            hour: req.body.hour
+        })
+        .then((response) => {
+            res.status(200).json(response);
+        })
 
     })
 
