@@ -2,25 +2,8 @@
 const calendar = {
 
     init: function() {
-            $("table").on("click", "*", function(e) {
 
-                if ( $(e.target).hasClass( "top-left" ) ) {
-                    calendar.flipAllHours()
-                } 
-
-                if ( $(e.target).hasClass( "hour" ) ) {
-                    calendar.flipHourRow(e.target);
-                }
-            
-                if ( $(e.target).hasClass( "day-head" ) ) {
-                    calendar.flipDayCellColor( e.target );
-                }
-                
-                if ( $( e.target ).hasClass("hour-tag") ) {
-                    calendar.setHourCellColor( e.target );
-                }
-
-        });
+        this.setCalendarClicks();
 
         this.datePickerInit();
 
@@ -29,6 +12,27 @@ const calendar = {
         this.activateDateHeadings();
 
         this.pullUserInfoToTheFrontEnd();
+    },
+
+    setCalendarClicks: function() {
+        $("table").on("click", "*", function(e) {
+
+            if ( $(e.target).hasClass( "top-left" ) ) {
+                calendar.flipAllHours()
+            } 
+
+            if ( $(e.target).hasClass( "hour" ) ) {
+                calendar.flipHourRow(e.target);
+            }
+        
+            if ( $(e.target).hasClass( "day-head" ) ) {
+                calendar.flipDayCellColor( e.target );
+            }
+            
+            if ( $( e.target ).hasClass("hour-tag") ) {
+                calendar.setHourCellColor( e.target );
+            }
+        });
     },
 
     userInfo: {},
@@ -105,17 +109,18 @@ const calendar = {
     getSelectedHours: function() {
         let hours = { 
             "schedule": {
-                "name": "MySchedule",
-                "co_id": 1,
-                "user_id": 1
+                "schedule_nm": "MySchedule",
+                "co_id": 1,   // this is stubbed out and need to be make real
+                "user_id": 1, // this too.
+                "type": "R",
+                "schedule_id": 1   // this too.
             },
             hours: []
         };
         $(".hour-selected").each( function( i, cell ) {
             console.log( i, cell );
             let newTime = {};
-            newTime.type = 'R';  // Should be "R" or "A"
-            newTime.day = cell.dataset.day;
+            newTime.date = $(".day[data-name='day-" + cell.dataset.day + "'").attr('data-date')
             newTime.hour = cell.dataset.hour.split(":")[0];
             hours.hours.push( newTime );
         });
@@ -176,3 +181,4 @@ function getCookie(cname) {
 $(()=> {
     calendar.init();
 })
+
