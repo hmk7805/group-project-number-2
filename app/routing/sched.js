@@ -98,6 +98,7 @@ module.exports = {
                 "where": { id: body.schedule.schedule_id }
             })
             .then( function( result ) {
+                body.schedule_results = { "id": body.schedule_id }
                 resolve( body );
             })
             .catch( function( err ) {
