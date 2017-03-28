@@ -44,10 +44,10 @@ const calendar = {
             method: "GET",
             url: "/api/v1/useremail/" + email
         }).done( (resp) => {
-            console.log( resp );
-            calendar.userInfo.userID      = resp[0].userID;
+            console.log( "ACCOUNT RESPONSE: ", resp );
+            calendar.userInfo.userID      = resp[0].id;
             calendar.userInfo.userName    = resp[0].user_name;
-            calendar.userInfo.coID        = resp[0].coID,
+            calendar.userInfo.coID        = resp[0].co_id,
             calendar.userInfo.companyName = resp[0].company_name;
             calendar.userInfo.email       = resp[0].email;
             calendar.userInfo.name        = resp[0].name;

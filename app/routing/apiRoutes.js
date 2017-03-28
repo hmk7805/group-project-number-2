@@ -110,7 +110,7 @@ module.exports = function (app) {
 
     // return as user entry by ID
     app.get("/api/v1/useremail/:email", function (req, res) {
-        util.runSQL("SELECT * FROM users WHERE email = ?;", [req.params.email])
+        util.runSQL("SELECT * FROM v_user WHERE email = ?;", [req.params.email])
             .then(function (results) {
                 res.status(200).json(results);
             })
