@@ -115,6 +115,7 @@ const calendar = {
                 "user_id": calendar.userInfo.user_id,
                 "type": calendar.userInfo.type,
                 "schedule_id": 0
+
             },
             hours: []
         };
@@ -184,3 +185,4 @@ function getCookie(cname) {
 $(()=> {
     calendar.init();
 })
+
