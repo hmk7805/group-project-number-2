@@ -2,25 +2,8 @@
 const calendar = {
 
     init: function() {
-            $("table").on("click", "*", function(e) {
 
-                if ( $(e.target).hasClass( "top-left" ) ) {
-                    calendar.flipAllHours()
-                } 
-
-                if ( $(e.target).hasClass( "hour" ) ) {
-                    calendar.flipHourRow(e.target);
-                }
-            
-                if ( $(e.target).hasClass( "day-head" ) ) {
-                    calendar.flipDayCellColor( e.target );
-                }
-                
-                if ( $( e.target ).hasClass("hour-tag") ) {
-                    calendar.setHourCellColor( e.target );
-                }
-
-        });
+        this.setCalendarClicks();
 
         this.datePickerInit();
 
@@ -29,6 +12,27 @@ const calendar = {
         this.activateDateHeadings();
 
         this.pullUserInfoToTheFrontEnd();
+    },
+
+    setCalendarClicks: function() {
+        $("table").on("click", "*", function(e) {
+
+            if ( $(e.target).hasClass( "top-left" ) ) {
+                calendar.flipAllHours()
+            } 
+
+            if ( $(e.target).hasClass( "hour" ) ) {
+                calendar.flipHourRow(e.target);
+            }
+        
+            if ( $(e.target).hasClass( "day-head" ) ) {
+                calendar.flipDayCellColor( e.target );
+            }
+            
+            if ( $( e.target ).hasClass("hour-tag") ) {
+                calendar.setHourCellColor( e.target );
+            }
+        });
     },
 
     userInfo: {},

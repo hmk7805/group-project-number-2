@@ -3,6 +3,7 @@
 const db = require('../models');
 const util = require("../utilities.js");
 const stormpath = require('express-stormpath');
+const sched = require("../routing/sched.js" );
 
 module.exports = function (app) {
     console.log("Loading API routes");
@@ -49,7 +50,28 @@ module.exports = function (app) {
             })
     })
 
-    // THIS IS WHERE ADD A SCHEDULE GOES. . . TO be comtinued.
+    // THIS IS WHERE ADD A SCHEDULE GOES.
+    app.post("/api/v1/addsched", function(req,res) {
+        console.log( req.body );
+
+        if ( body.schedule.schedule_id === 0 ) {
+            console.log( "New schedule inserting" );
+            sched.insertSched( body )
+            .then( sched.insertSchedDtl )
+            .then( function( output ) { 
+                res.status(200).json( output );
+            })
+        } else {
+            console.log( "Updating an existing schedule" );
+            sched.removeSchedDtl( body )
+            .then( sched.updateSched )
+            .then( sched.insertSchedDtl )
+            .then( function( output ) { 
+                res.status(200).json( output );
+            })    
+        }
+
+    });
 
     // Return a company entry by ID
     app.get("/api/v1/company/:id", function (req, res) {
