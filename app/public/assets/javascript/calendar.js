@@ -58,7 +58,7 @@ const calendar = {
             calendar.userInfo.zip         = resp[0].zip;
             calendar.userInfo.img         = resp[0].img;
             calendar.userInfo.type        = resp[0].type;
-
+            calendar.userInfo.schedule_id = 0;
             console.log( calendar.userInfo );
         })
     },
@@ -114,7 +114,7 @@ const calendar = {
                 "co_id": calendar.userInfo.coID,
                 "user_id": calendar.userInfo.userID,
                 "type": calendar.userInfo.type,
-                "schedule_id": 0
+                "schedule_id": calendar.userInfo.schedule_id
 
             },
             hours: []

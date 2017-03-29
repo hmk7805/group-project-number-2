@@ -45,7 +45,19 @@ $(() => {
         console.log(rowArray);
 
         let currentHours = calendar.getSelectedHours();
-        console.log(currentHours);
+        
+        //console.log(currentHours);
+
+        $.ajax({
+            method: 'POST',
+            url: '/api/v1/addsched',
+            data: currentHours,
+            dataType: 'json'
+        }).done((response) => {
+            console.log(response);
+            calendar.userInfo.schedule_id = response.details[0].schedule_id;
+        });
+
         // rowArray.forEach(row => {
         //     if(row.nodeName === "TR"){
         //         const tdArray = [].slice.call(row.childNodes);
