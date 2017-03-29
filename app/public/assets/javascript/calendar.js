@@ -59,6 +59,7 @@ const calendar = {
             calendar.userInfo.img         = resp[0].img;
             calendar.userInfo.type        = resp[0].type;
             calendar.userInfo.schedule_id = 0;
+            calendar.userInfo.schedType   = resp[0].type === 'A' ? 'R' : 'A';
             console.log( calendar.userInfo );
         })
     },
