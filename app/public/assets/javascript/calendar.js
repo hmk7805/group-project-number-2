@@ -114,7 +114,7 @@ const calendar = {
                 "schedule_nm": "MySchedule",
                 "co_id": calendar.userInfo.coID,
                 "user_id": calendar.userInfo.userID,
-                "type": calendar.userInfo.type,
+                "type": calendar.userInfo.schedType,
                 "schedule_id": calendar.userInfo.schedule_id
 
             },
