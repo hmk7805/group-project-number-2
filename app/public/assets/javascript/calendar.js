@@ -33,6 +33,13 @@ const calendar = {
                 calendar.setHourCellColor( e.target );
             }
         });
+
+        const clearButton = (document.getElementsByClassName('btn btn-circle btn-outline red dropdown-toggle'))[0];
+
+        $(clearButton).on("click", function(e) {
+            console.log( "Clearing the calendar" );
+            $(".hour-selected").removeClass("hour-selected")
+        });
     },
 
     userInfo: {},
@@ -153,6 +160,7 @@ const calendar = {
 
         $( "#datepicker" ).datepicker( "option", "changeMonth", true );
     },
+
 } 
 
 const logControl = {
