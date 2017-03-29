@@ -44,7 +44,7 @@ const calendar = {
             method: "GET",
             url: "/api/v1/useremail/" + email
         }).done( (resp) => {
-            console.log( resp );
+            console.log( "ACCOUNT RESPONSE: ", resp );
             calendar.userInfo.userID      = resp[0].id;
             calendar.userInfo.userName    = resp[0].user_name;
             calendar.userInfo.coID        = resp[0].co_id,
@@ -57,7 +57,9 @@ const calendar = {
             calendar.userInfo.state       = resp[0].state;
             calendar.userInfo.zip         = resp[0].zip;
             calendar.userInfo.img         = resp[0].img;
-
+            calendar.userInfo.type        = resp[0].type;
+            calendar.userInfo.schedule_id = 0;
+            calendar.userInfo.schedType   = resp[0].type === 'A' ? 'R' : 'A';
             console.log( calendar.userInfo );
         })
     },
@@ -110,10 +112,11 @@ const calendar = {
         let hours = { 
             "schedule": {
                 "schedule_nm": "MySchedule",
-                "co_id": 1,   // this is stubbed out and need to be make real
-                "user_id": 1, // this too.
-                "type": "R",
-                "schedule_id": 1   // this too.
+                "co_id": calendar.userInfo.coID,
+                "user_id": calendar.userInfo.userID,
+                "type": calendar.userInfo.schedType,
+                "schedule_id": calendar.userInfo.schedule_id
+
             },
             hours: []
         };
@@ -126,6 +129,8 @@ const calendar = {
         });
 
         console.log( JSON.stringify( hours, null, 2 ) );
+
+        return hours;
     },
 
     resetAllhours: function() {

@@ -43,22 +43,36 @@ $(() => {
         const selectedHours = $('table tbody');
         const rowArray = [].slice.call(selectedHours[0].childNodes);
         console.log(rowArray);
-        
-        rowArray.forEach(row => {
-            if(row.nodeName === "TR"){
-                const tdArray = [].slice.call(row.childNodes);
-                console.log(tdArray);
-                for(let i = 3; i < tdArray.length; i++){
-                    if(tdArray[i].nodeName === 'TD'){//add checks for if the user marked it available
-                        //need to post with the following:
-                        //user.id , day of the week it's associated with in date format
-                        //the specific hour, the schedule id
-                        console.log(tdArray[i]);
-                    }
-                }
 
-            }
-        })
+        let currentHours = calendar.getSelectedHours();
+        
+        //console.log(currentHours);
+
+        $.ajax({
+            method: 'POST',
+            url: '/api/v1/addsched',
+            data: currentHours,
+            dataType: 'json'
+        }).done((response) => {
+            console.log(response);
+            calendar.userInfo.schedule_id = response.dtls[0].schedule_id;
+        });
+
+        // rowArray.forEach(row => {
+        //     if(row.nodeName === "TR"){
+        //         const tdArray = [].slice.call(row.childNodes);
+        //         console.log(tdArray);
+        //         for(let i = 3; i < tdArray.length; i++){
+        //             if(tdArray[i].nodeName === 'TD'){//add checks for if the user marked it available
+        //                 //need to post with the following:
+        //                 //user.id , day of the week it's associated with in date format
+        //                 //the specific hour, the schedule id
+        //                 console.log(tdArray[i]);
+        //             }
+        //         }
+
+        //     }
+        // })
     });
 
 

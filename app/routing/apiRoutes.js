@@ -62,8 +62,8 @@ module.exports = function (app) {
     // THIS IS WHERE ADD A SCHEDULE GOES.
     app.post("/api/v1/addsched", function(req,res) {
         console.log( "post:addsched:", req.body );
-
-        if ( req.body.schedule.schedule_id === 0 ) {
+        
+        if ( parseInt(req.body.schedule.schedule_id) === 0 ) {
             console.log( "New schedule inserting" );
             sched.insertSched( req.body )
             .then( sched.insertSchedDtl )
@@ -110,7 +110,7 @@ module.exports = function (app) {
 
     // return as user entry by ID
     app.get("/api/v1/useremail/:email", function (req, res) {
-        util.runSQL("SELECT * FROM users WHERE email = ?;", [req.params.email])
+        util.runSQL("SELECT * FROM v_user WHERE email = ?;", [req.params.email])
             .then(function (results) {
                 res.status(200).json(results);
             })
