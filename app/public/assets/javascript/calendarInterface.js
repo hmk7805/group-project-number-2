@@ -55,7 +55,7 @@ $(() => {
             dataType: 'json'
         }).done((response) => {
             console.log(response);
-            calendar.userInfo.schedule_id = response.details[0].schedule_id;
+            calendar.userInfo.schedule_id = response.dtls[0].schedule_id;
         });
 
         // rowArray.forEach(row => {
