@@ -168,6 +168,16 @@ const calendar = {
         $( "#datepicker" ).datepicker( "option", "changeMonth", true );
     },
 
+    findCellbyDateTime: function ( pDate, pTime ) {
+        let hptr = $(".day[data-date='" + pDate + "']").attr("data-name");        // Grab the 'dat-#' value from the header with the corresponding date
+        let dayIndex = hptr.split( "-" )[1];                                      // Strip the 'day-' part off so you are left with the numeric value 
+
+        // select the cell with the corresponding hour and dayIndex 
+        let cellPtr = $(".hour-tag[data-day='" + dayIndex + "'][data-hour='" + pTime + ":00']");   
+
+        // Returns a jQuery result set, so you can wrap it like this: $(findCellbyDateTime( '2017-03-27', '1' )).css("background-color","green")
+        return cellPtr;
+    }
 } 
 
 const logControl = {
