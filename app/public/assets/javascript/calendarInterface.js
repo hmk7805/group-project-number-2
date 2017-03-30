@@ -9,6 +9,9 @@ const populateSchedule = function(schedule){
     }).done((data) => {
         console.log(data);
         $('#btnGroupVerticalDrop1').text(schedule.schedule_nm);
+        console.log(`Setting current user schedule id to: ${schedule.id}`);
+        calendar.userInfo.schedule_id = schedule.id;
+        calendar.userInfo.schedule_nm = schedule.schedule_nm;
     });
 }
 
@@ -60,15 +63,21 @@ $(() => {
     console.log(submitButton);
     $(submitButton).on('click', (e) => {
         e.preventDefault();
+
+
         const firstDayOfWeek = ($('table thead tr'))[0].children[1].children[0].dataset.date;
         console.log(firstDayOfWeek);
-        const selectedHours = $('table tbody');
-        const rowArray = [].slice.call(selectedHours[0].childNodes);
-        console.log(rowArray);
+        //const selectedHours = $('table tbody');
+        //const rowArray = [].slice.call(selectedHours[0].childNodes);
+        //console.log(rowArray);
 
-        let currentHours = calendar.getSelectedHours();
         
-        //console.log(currentHours);
+        if($('#schedule-name').val().trim() !== ''){
+            calendar.userInfo.schedule_id = 0;
+            calendar.userInfo.schedule_nm = $('#schedule-name').val().trim();
+        }
+        let currentHours = calendar.getSelectedHours();
+        console.log(currentHours);
 
         $.ajax({
             method: 'POST',
