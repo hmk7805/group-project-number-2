@@ -123,7 +123,8 @@ module.exports = function (app) {
                 res.status(200).json(results);
             })
     })
-
+    //paint calendar
+    //working/not working  covered/not covered,  shift that needs coverage = yellow/red shift that is covered == green
     // Return a specific schedule by ID 
     app.get("/api/v1/schedule/:id", function (req, res) {
         util.runSQL("SELECT * FROM v_schedule_status WHERE schedule_id = ?", req.params.id)
