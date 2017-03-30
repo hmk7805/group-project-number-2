@@ -1,3 +1,4 @@
+use planner;
 
 drop view IF EXISTS v_req; 
 
@@ -19,8 +20,8 @@ select ifnull( r.schedule_id, e.schedule_id ) schedule_id,
        e.type eType,
        DATE_FORMAT( e.date, '%Y-%m-%d' ) eDate,
        e.hour eHour
-  from v_req R
-  left outer join v_avail E on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
+  from v_req r
+  left outer join v_avail e on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
  where ( r.type is null or r.type = 'R' )
    and ( e.type is null or e.type = 'A' )
 union
@@ -33,8 +34,8 @@ select ifnull( r.schedule_id, e.schedule_id ) schedule_id,
        e.type eType,
        DATE_FORMAT( e.date, '%Y-%m-%d' ) eDate,
        e.hour eHour
-  from v_req R
-  right outer join v_avail E on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
+  from v_req r
+  right outer join v_avail e on r.schedule_id = e.schedule_id and r.date = e.date and r.hour = e.hour 
  where ( r.type is null or r.type = 'R' )
    and ( e.type is null or e.type = 'A' )
  order by ifnull( rDate, eDate ), ifnull( rHour, eHour );
@@ -62,12 +63,29 @@ select s.id schedule_id,
   left outer join users ru on ru.id = sd.rUser
   left outer join users eu on eu.id = sd.eUser
  order by date, hour;
+
+drop view if exists v_user;
   
-select * from v_schedule_status 
+create view v_user 
+as 
+select u.id		id,
+       u.name     	user_name,
+       c.id       	co_id,
+       c.name     	company_name,
+       u.email    	email,
+       u.name     	name,
+       u.phone 		phone,
+       u.address	address,
+       u.city		city,
+       u.state		state,
+       u.zip		zip,
+       u.img		img,
+       u.type		type
+  from users u
+  join companies c on c.id = u.co_id  ;
   
   
-  
-  
+select * from v_schedule_status ;
   
   
   
