@@ -29,7 +29,11 @@ $(() => {
                 console.log(data);
                 // here we will perform our action with all of the schedules for a current company
                 company = data;
-                
+                $('#schedule-dropdown').empty();
+                data.forEach(schedule => {
+                    let newSchedule = $('<li>').text(`Schedule: ${schedule.schedule_nm} || Schedule ID: ${schedule.id}`);
+                    $('#schedule-dropdown').prepend(newSchedule);
+                });
             })
         })
     })
