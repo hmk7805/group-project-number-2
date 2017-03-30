@@ -76,7 +76,8 @@ module.exports = {
         return new Promise( function( resolve, reject ) {
             db.schedule_dtl.destroy( {
                 where: {
-                    schedule_id: body.schedule.schedule_id
+                    schedule_id: body.schedule.schedule_id,
+                    type: body.schedule.type
                 }
             })
             .then( function( results ) {

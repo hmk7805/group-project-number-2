@@ -40,6 +40,13 @@ const calendar = {
             console.log( "Clearing the calendar" );
             $(".hour-selected").removeClass("hour-selected")
         });
+
+        // Hack to add an ID to schedule name and add the place holder
+        let sched = $("input[value='Schedule Name']")
+        $(sched).attr("ID",'schedule-name');  
+        $(sched).attr("placeholder", "Schedule Name");
+        $(sched).attr("value","");
+
     },
 
     userInfo: {},
@@ -118,7 +125,7 @@ const calendar = {
     getSelectedHours: function() {
         let hours = { 
             "schedule": {
-                "schedule_nm": "MySchedule",
+                "schedule_nm": $("#schedule-name").val(),
                 "co_id": calendar.userInfo.coID,
                 "user_id": calendar.userInfo.userID,
                 "type": calendar.userInfo.schedType,
