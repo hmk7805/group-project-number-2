@@ -61,10 +61,10 @@ module.exports = function (app) {
 
     // THIS IS WHERE ADD A SCHEDULE GOES.
     app.post("/api/v1/addsched", function(req,res) {
-        console.log( "post:addsched:", req.body );
-        
+        //console.log( "post:addsched:", req.body );
+        console.log( `New schedule inserting at schedule id: ${req.body.schedule.schedule_id}` );
         if ( parseInt(req.body.schedule.schedule_id) === 0 ) {
-            console.log( "New schedule inserting" );
+            
             sched.insertSched( req.body )
             .then( sched.insertSchedDtl )
             .then( function( output ) { 
