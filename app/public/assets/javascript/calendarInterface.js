@@ -1,5 +1,17 @@
 'use strict';
 
+const populateSchedule = function(schedule){
+    const url = `/api/v1/schedule/${schedule.id}`;
+    $.ajax({
+        method: "GET",
+        url: url,
+        dataType: 'json'
+    }).done((data) => {
+        console.log(data);
+        $('#btnGroupVerticalDrop1').text(schedule.schedule_nm);
+    });
+}
+
 $(() => {
     let user = {};
     let company = {};
@@ -32,7 +44,13 @@ $(() => {
                 $('#schedule-dropdown').empty();
                 data.forEach(schedule => {
                     let newSchedule = $('<li>').text(`Schedule: ${schedule.schedule_nm} || Schedule ID: ${schedule.id}`);
+                    newSchedule.attr('id', `scheduleid-${schedule.id}`);
+                    newSchedule.on('click', () => {
+                        populateSchedule(schedule);
+                    });
+
                     $('#schedule-dropdown').prepend(newSchedule);
+                    
                 });
             })
         })
