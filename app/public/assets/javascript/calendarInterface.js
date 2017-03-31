@@ -14,8 +14,6 @@ const populateSchedule = function (schedule) {
         calendar.userInfo.schedule_nm = schedule.schedule_nm;
 
 
-
-
     });
 }
 
@@ -63,6 +61,8 @@ $(() => {
             user = data[0];
             if(user.type === 'E'){
                 $('#schedule-name').addClass('hidden');
+            } else {
+                enableButtons();
             }
             $.ajax({
                 method: "GET",
@@ -142,6 +142,9 @@ $(() => {
             console.log(data);
             data.forEach(hour => {
                 let timeBlock = calendar.findCellbyDateTime(hour.date, hour.hour);
+                if(!timeBlock){
+                    return;
+                }
                 if(hour.stat === 'C'){
                     //covered
                     timeBlock.addClass('covered');
