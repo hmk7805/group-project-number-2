@@ -1,6 +1,8 @@
 'use strict';
 
 const populateSchedule = function (schedule) {
+
+
     const url = `/api/v1/schedule/${schedule.id}`;
     $.ajax({
         method: "GET",
@@ -9,6 +11,7 @@ const populateSchedule = function (schedule) {
     }).done((data) => {
         console.log(data);
         $('#btnGroupVerticalDrop1').text(schedule.schedule_nm);
+        console.log(schedule);
         console.log(`Setting current user schedule id to: ${schedule.id}`);
         calendar.userInfo.schedule_id = schedule.id;
         calendar.userInfo.schedule_nm = schedule.schedule_nm;
@@ -133,6 +136,16 @@ $(() => {
     console.log(`Button to view things: ${viewScheduleOverlay}`);
     $(viewScheduleOverlay).on('click', (e) => {
         e.preventDefault();
+        if(parseInt(calendar.userInfo.schedule_id) === 0 || !calendar.userInfo.schedule_nm){
+            console.log('no data to enter');
+            return;
+        }
+
+        $(".hour-selected").removeClass("hour-selected");
+        $(".hour-tag").removeClass('covered');
+        $(".hour-tag").removeClass('available');
+        $(".hour-tag").removeClass('requested');
+
         let url = `/api/v1/schedule/${calendar.userInfo.schedule_id}`;
         $.ajax({
             method: 'GET',
@@ -157,21 +170,7 @@ $(() => {
                 }
             });
         });
-        // rowArray.forEach(row => {
-        //     if(row.nodeName === "TR"){
-        //         const tdArray = [].slice.call(row.childNodes);
-        //         console.log(tdArray);
-        //         for(let i = 3; i < tdArray.length; i++){
-        //             if(tdArray[i].nodeName === 'TD'){//add checks for if the user marked it available
-        //                 //need to post with the following:
-        //                 //user.id , day of the week it's associated with in date format
-        //                 //the specific hour, the schedule id
-        //                 console.log(tdArray[i]);
-        //             }
-        //         }
 
-        //     }
-        // })
     });
 
 
