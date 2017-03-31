@@ -118,7 +118,7 @@ module.exports = function (app) {
 
     // Return all schedules for a compnay 
     app.get("/api/v1/schedules/:co_id", function (req, res) {
-        util.runSQL("SELECT * FROM schedules WHERE co_id = ?;", [req.params.co_id])
+        util.runSQL("select s.*, (select min( date ) from schedule_dtls d where d.schedule_id = s.id) sched_date from schedules s WHERE co_id = ?;", [req.params.co_id])
             .then(function (results) {
                 res.status(200).json(results);
             })
