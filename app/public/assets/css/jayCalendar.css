@@ -2,3 +2,15 @@
     background-color: #17c4bb;
     cursor: pointer;
 }
+
+.covered {
+    background-color: lightgreen;
+}
+
+.requested {
+    background-color: lightcoral;
+}
+
+.available {
+    background-color: yellow;
+}
