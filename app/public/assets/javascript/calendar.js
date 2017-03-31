@@ -94,7 +94,7 @@ const calendar = {
         console.log( "Start of week = ", dt.format('YYYY-MM-DD') );
         for ( let i = 1; i<8; i++ ) {
             let $dheader = $(".day-head[data-day-head='" + i + "'] span")[0];
-            $dheader.innerHTML = dt.format( "M/D/YY" );
+            $dheader.innerHTML = dt.format( "M/D" );
             $($dheader).attr("data-date", dt.format('YYYY-MM-DD'));
             dt.add( 1, 'days' );
         }
