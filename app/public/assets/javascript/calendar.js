@@ -173,6 +173,9 @@ const calendar = {
 
     findCellbyDateTime: function ( pDate, pTime ) {
         let hptr = $(".day[data-date='" + pDate + "']").attr("data-name");        // Grab the 'dat-#' value from the header with the corresponding date
+        if ( ! hptr ) {
+            return null;
+        }
         let dayIndex = hptr.split( "-" )[1];                                      // Strip the 'day-' part off so you are left with the numeric value 
 
         // select the cell with the corresponding hour and dayIndex 
