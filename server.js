@@ -3,7 +3,7 @@
 var db = require( "./app/models" );
 
 const express = require('express');
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 var bodyParser = require("body-parser");
 var stormpath = require( 'express-stormpath' );
 
