@@ -15,8 +15,8 @@ const populateSchedule = function (schedule) {
         console.log(`Setting current user schedule id to: ${schedule.id}`);
         calendar.userInfo.schedule_id = schedule.id;
         calendar.userInfo.schedule_nm = schedule.schedule_nm;
-
-
+        calendar.userInfo.current_schedule_date = schedule.sched_date;
+        calendar.setDateHeadings(moment(schedule.sched_date));
     });
 }
 
@@ -79,7 +79,7 @@ $(() => {
 
                 $('#schedule-dropdown').empty();
                 data.forEach(schedule => {
-                    let newSchedule = $('<li>').text(`Schedule: ${schedule.schedule_nm} || Schedule ID: ${schedule.id}`);
+                    let newSchedule = $('<li>').text(`Schedule: ${schedule.schedule_nm}`);
                     newSchedule.attr('id', `scheduleid-${schedule.id}`);
                     newSchedule.on('click', () => {
                         populateSchedule(schedule);
@@ -127,6 +127,10 @@ $(() => {
         }).done((response) => {
             console.log(response);
             calendar.userInfo.schedule_id = response.dtls[0].schedule_id;
+            setTimeout(()=>{
+                alert('Schedule successfully submitted!  Click the view to see current schedule Coverage/Availability/Requested Hours.');
+                window.location.reload();
+            }, 1000);
         });
 
 
@@ -169,6 +173,11 @@ $(() => {
                     timeBlock.addClass('available');
                 }
             });
+        });
+
+        $('#logout-button').on('click', ()=>{
+            console.log(`trying to logout`);
+            logControl.logout();
         });
 
     });
