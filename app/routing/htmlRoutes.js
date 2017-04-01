@@ -16,6 +16,9 @@ module.exports = function(app) {
     res.cookie( "userEmail", req.user.email ).sendFile(path.join(__dirname, "../public/Dashboard/theme/admin_2/app_calendar.html")); //landing page
   });
 
+  app.get("/splash", (req, res) => {
+    res.sendFile(path.join(__dirname,"../public/Marketing/index-2.html"));
+  });
 
 };
 
