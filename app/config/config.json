@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "root",
     "database": "planner",
     "host": "127.0.0.1",
     "port": "8889",
@@ -20,7 +20,7 @@
     "password": "c808c96d",
     "database": "heroku_431c4953d111cde",
     "host": "us-cdbr-iron-east-03.cleardb.net",
-    "port": "3306",
+    "port": "8889",
     "dialect": "mysql"
   }
 }
