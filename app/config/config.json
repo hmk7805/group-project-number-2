@@ -16,11 +16,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "planner",
-    "host": "127.0.0.1",
-    "port": "8889",
+    "username": "bf6f24a8a92a24",
+    "password": "c808c96d",
+    "database": "heroku_431c4953d111cde",
+    "host": "us-cdbr-iron-east-03.cleardb.net",
+    "port": "3306",
     "dialect": "mysql"
   }
 }
